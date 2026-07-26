@@ -1,0 +1,271 @@
+.management-page {
+  min-height: 100vh;
+  padding: 38px;
+  background: #f5f3f1;
+}
+
+.management-header {
+  width: min(1000px, 100%);
+  margin: 0 auto 24px;
+}
+
+.management-header a {
+  color: #71432b;
+  text-decoration: none;
+}
+
+.management-header h1 {
+  margin: 14px 0 6px;
+}
+
+.management-header p {
+  margin: 0;
+  color: #756b65;
+}
+
+.management-card {
+  width: min(1000px, 100%);
+  margin: auto;
+  padding: 26px;
+  background: #ffffff;
+  border: 1px solid #e5ddd7;
+  border-radius: 18px;
+}
+
+.management-form {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.product-form {
+  flex-wrap: wrap;
+}
+
+.management-form input,
+.management-form select {
+  flex: 1;
+  min-width: 180px;
+  padding: 13px 14px;
+  border: 1px solid #d8cec7;
+  border-radius: 10px;
+}
+
+.management-form button {
+  padding: 13px 20px;
+  color: white;
+  cursor: pointer;
+  background: #4b3021;
+  border: 0;
+  border-radius: 10px;
+}
+
+.management-message {
+  padding: 12px 14px;
+  color: #5b3b29;
+  background: #f7f0eb;
+  border-radius: 10px;
+}
+
+.management-list {
+  display: grid;
+  gap: 12px;
+}
+
+.management-list article {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 18px;
+  padding: 16px;
+  border: 1px solid #e8dfd8;
+  border-radius: 12px;
+}
+
+.management-list article div {
+  display: grid;
+  gap: 5px;
+}
+
+.management-list span {
+  color: #756b65;
+}
+
+.delete-button {
+  padding: 9px 14px;
+  color: #a12d27;
+  cursor: pointer;
+  background: #fff0ef;
+  border: 0;
+  border-radius: 8px;
+}
+
+.action-buttons {
+  display: flex;
+  gap: 9px;
+}
+
+.edit-button,
+.save-button,
+.secondary-button {
+  padding: 9px 14px;
+  cursor: pointer;
+  border: 0;
+  border-radius: 8px;
+}
+
+.edit-button,
+.save-button {
+  color: #ffffff;
+  background: #5b3a27;
+}
+
+.secondary-button {
+  color: #564b45;
+  background: #ece7e3;
+}
+
+.inline-edit {
+  display: flex;
+  width: 100%;
+  gap: 10px;
+  align-items: center;
+}
+
+.inline-edit input {
+  flex: 1;
+  padding: 11px 13px;
+  border: 1px solid #d8cec7;
+  border-radius: 9px;
+}
+
+.product-management-info {
+  display: flex !important;
+  align-items: center;
+  gap: 14px !important;
+}
+
+.product-management-info > div {
+  display: grid;
+  gap: 5px;
+}
+
+.product-management-info small {
+  color: #857870;
+}
+
+.management-product-image {
+  width: 72px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 11px;
+  background: #f1ece8;
+}
+
+@media (max-width: 650px) {
+  .management-page {
+    padding: 24px 14px;
+  }
+
+  .management-form {
+    flex-direction: column;
+  }
+
+  .management-form input,
+  .management-form select {
+    width: 100%;
+  }
+
+  .management-list article {
+    align-items: flex-start;
+    flex-direction: column;
+  }
+
+  .action-buttons {
+    width: 100%;
+  }
+
+  .action-buttons button {
+    flex: 1;
+  }
+
+  .inline-edit {
+    align-items: stretch;
+    flex-direction: column;
+  }
+}
+
+.image-upload-button {
+  display: flex;
+  min-width: 180px;
+  min-height: 44px;
+  padding: 12px 16px;
+  align-items: center;
+  justify-content: center;
+  color: #ffffff;
+  font-weight: 600;
+  cursor: pointer;
+  background: #6a4936;
+  border-radius: 10px;
+}
+
+.image-upload-button:hover {
+  background: #503425;
+}
+
+.image-upload-button.uploading {
+  cursor: wait;
+  opacity: 0.65;
+}
+
+.image-upload-button input {
+  display: none;
+}
+
+.image-preview {
+  display: flex;
+  width: 100%;
+  margin-bottom: 22px;
+  padding: 14px;
+  gap: 14px;
+  align-items: center;
+  background: #f8f3ef;
+  border: 1px solid #e4d9d1;
+  border-radius: 12px;
+}
+
+.image-preview img {
+  width: 110px;
+  height: 85px;
+  flex: 0 0 auto;
+  object-fit: cover;
+  border-radius: 10px;
+  background: #ece7e3;
+}
+
+.image-preview div {
+  display: grid;
+  flex: 1;
+  gap: 5px;
+}
+
+.image-preview span {
+  color: #756b65;
+  font-size: 13px;
+}
+
+@media (max-width: 650px) {
+  .image-upload-button {
+    width: 100%;
+  }
+
+  .image-preview {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .image-preview img {
+    width: 100%;
+    height: 190px;
+  }
+}

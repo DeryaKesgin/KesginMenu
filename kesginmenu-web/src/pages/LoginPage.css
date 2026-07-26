@@ -1,0 +1,118 @@
+.login-page {
+  display: grid;
+  min-height: 100vh;
+  padding: 24px;
+  place-items: center;
+  background:
+    radial-gradient(circle at top left, rgba(115, 73, 43, 0.22), transparent 35%),
+    linear-gradient(135deg, #18110d, #3d281c);
+}
+
+.login-card {
+  width: min(440px, 100%);
+  padding: 38px;
+  background: #ffffff;
+  border-radius: 24px;
+  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+.login-brand {
+  margin-bottom: 28px;
+  text-align: center;
+}
+
+.login-brand span {
+  display: inline-block;
+  margin-bottom: 12px;
+  color: #7b421c;
+  font-size: 15px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+}
+
+.login-brand h1 {
+  margin: 0;
+  color: #251b15;
+  font-size: 29px;
+}
+
+.login-brand p {
+  margin: 14px 0 0;
+  color: #756b65;
+  line-height: 1.6;
+}
+
+.login-form {
+  display: grid;
+  gap: 18px;
+}
+
+.login-form label {
+  display: grid;
+  gap: 8px;
+  color: #302721;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 14px 15px;
+  color: #25211e;
+  background: #ffffff;
+  border: 1px solid #d9cec7;
+  border-radius: 12px;
+  outline: none;
+}
+
+.login-form input:focus {
+  border-color: #7b421c;
+  box-shadow: 0 0 0 3px rgba(123, 66, 28, 0.12);
+}
+
+.login-form button {
+  min-height: 50px;
+  margin-top: 4px;
+  color: #ffffff;
+  font-weight: 700;
+  cursor: pointer;
+  background: #4b3021;
+  border: 0;
+  border-radius: 12px;
+}
+
+.login-form button:hover {
+  background: #332016;
+}
+
+.login-form button:disabled {
+  cursor: not-allowed;
+  opacity: 0.65;
+}
+
+.login-error {
+  padding: 12px 14px;
+  color: #9d211b;
+  background: #fff0ef;
+  border: 1px solid #f0c6c3;
+  border-radius: 10px;
+  font-size: 14px;
+}
+
+.demo-information {
+  display: grid;
+  gap: 4px;
+  margin-top: 24px;
+  padding: 15px;
+  color: #665b55;
+  text-align: center;
+  background: #f7f2ee;
+  border-radius: 12px;
+  font-size: 13px;
+}
+
+.demo-information strong {
+  margin-bottom: 4px;
+  color: #3d2b20;
+}
