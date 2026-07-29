@@ -91,9 +91,9 @@ builder.Services.AddCors(options =>
     {
         policy
             .WithOrigins(
-    "http://localhost:5173",
-    "https://kesginmenu.vercel.app"
-)
+                "http://localhost:5173",
+                "https://kesgin-menu.vercel.app"
+            )
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
