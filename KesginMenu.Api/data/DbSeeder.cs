@@ -11,8 +11,9 @@ public static class DbSeeder
         PasswordHasher<AppUser> passwordHasher)
     {
         const string demoEmail = "demo@kesginsoft.com";
+        const string customerEmail = "deneme1@kesginsoft.com";
 
-        // Demo işletmesi var mı?
+        // Genel demo işletmesi var mı?
         var business = await context.Businesses
             .FirstOrDefaultAsync(x => x.Slug == "demo-restoran");
 
@@ -31,7 +32,7 @@ public static class DbSeeder
             await context.SaveChangesAsync();
         }
 
-        // Demo kullanıcı var mı?
+        // Genel demo kullanıcı var mı?
         var userExists = await context.Users
             .AnyAsync(x => x.Email == demoEmail);
 
@@ -51,6 +52,50 @@ public static class DbSeeder
                 passwordHasher.HashPassword(user, "Demo123*");
 
             context.Users.Add(user);
+            await context.SaveChangesAsync();
+        }
+
+        // Yeni müşteri işletmesi var mı?
+        var customerBusiness = await context.Businesses
+            .FirstOrDefaultAsync(x => x.Slug == "deneme-isletmesi");
+
+        if (customerBusiness is null)
+        {
+            customerBusiness = new Business
+            {
+                Name = "Deneme İşletmesi",
+                Slug = "deneme-isletmesi",
+                Description = "3 günlük ücretsiz QR menü demo işletmesi",
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            context.Businesses.Add(customerBusiness);
+            await context.SaveChangesAsync();
+        }
+
+        // Yeni müşteri kullanıcısı var mı?
+        var customerUserExists = await context.Users
+            .AnyAsync(x => x.Email == customerEmail);
+
+        if (!customerUserExists)
+        {
+            var customerUser = new AppUser
+            {
+                FullName = "Deneme İşletmesi Yetkilisi",
+                Email = customerEmail,
+                Role = "BusinessAdmin",
+                BusinessId = customerBusiness.Id,
+                IsActive = true,
+                CreatedAt = DateTime.UtcNow
+            };
+
+            customerUser.PasswordHash =
+                passwordHasher.HashPassword(
+                    customerUser,
+                    "KesginDemo2026*");
+
+            context.Users.Add(customerUser);
             await context.SaveChangesAsync();
         }
     }
