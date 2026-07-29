@@ -11,7 +11,7 @@ public static class DbSeeder
         PasswordHasher<AppUser> passwordHasher)
     {
         const string demoEmail = "demo@kesginsoft.com";
-        const string customerEmail = "deneme1@kesginsoft.com";
+        const string customerEmail = "demo1@kesginsoft.com";
 
         // Genel demo işletmesi var mı?
         var business = await context.Businesses
