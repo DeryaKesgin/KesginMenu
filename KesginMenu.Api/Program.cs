@@ -11,6 +11,12 @@ using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi;
 
 var builder = WebApplication.CreateBuilder(args);
+var railwayPort = Environment.GetEnvironmentVariable("PORT");
+
+if (!string.IsNullOrWhiteSpace(railwayPort))
+{
+    builder.WebHost.UseUrls($"http://0.0.0.0:{railwayPort}");
+}
 
 builder.Services.AddControllers();
 
@@ -133,12 +139,14 @@ app.UseAuthorization();
 
 app.MapControllers();
 
-// Demo kullanıcısını ilk çalıştırmada oluşturur
+// Veritabanı migrationlarını uygular ve demo kullanıcısını oluşturur
 using (var scope = app.Services.CreateScope())
 {
     var context =
         scope.ServiceProvider
             .GetRequiredService<AppDbContext>();
+
+    await context.Database.MigrateAsync();
 
     var passwordHasher =
         scope.ServiceProvider
