@@ -11,6 +11,7 @@ import DashboardPage from "./pages/DashboardPage";
 import LoginPage from "./pages/LoginPage";
 import MenuPage from "./pages/MenuPage";
 import ProductsPage from "./pages/ProductsPage";
+import QrPage from "./pages/QrPage";
 
 function App() {
   return (
@@ -62,6 +63,15 @@ function App() {
             </ProtectedRoute>
           }
         />
+
+        <Route
+  path="/panel/qr"
+  element={
+    <ProtectedRoute>
+      <QrPage />
+    </ProtectedRoute>
+  }
+/>
 
         <Route
           path="*"

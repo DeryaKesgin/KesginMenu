@@ -36,16 +36,25 @@ function DashboardPage() {
           productsResponse,
         ] = await Promise.all([
           api.get(`/Businesses/${user.businessId}`),
-          api.get(`/Categories/business/${user.businessId}`),
-          api.get(`/Products/business/${user.businessId}`),
+          api.get(
+            `/Categories/business/${user.businessId}`
+          ),
+          api.get(
+            `/Products/business/${user.businessId}`
+          ),
         ]);
 
         setDashboardData({
-          categoryCount: categoriesResponse.data.length,
-          productCount: productsResponse.data.length,
-          businessName: businessResponse.data.name,
-          slug: businessResponse.data.slug,
-          isActive: businessResponse.data.isActive,
+          categoryCount:
+            categoriesResponse.data.length,
+          productCount:
+            productsResponse.data.length,
+          businessName:
+            businessResponse.data.name,
+          slug:
+            businessResponse.data.slug,
+          isActive:
+            businessResponse.data.isActive,
         });
       } catch (requestError) {
         console.error(requestError);
@@ -62,7 +71,9 @@ function DashboardPage() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
 
-    navigate("/login", { replace: true });
+    navigate("/login", {
+      replace: true,
+    });
   };
 
   const menuPath = dashboardData.slug
@@ -81,7 +92,10 @@ function DashboardPage() {
         </div>
 
         <nav>
-          <Link className="active" to="/panel">
+          <Link
+            className="active"
+            to="/panel"
+          >
             Genel Bakış
           </Link>
 
@@ -93,8 +107,16 @@ function DashboardPage() {
             Ürünler
           </Link>
 
+          <Link to="/panel/qr">
+            QR Kod
+          </Link>
+
           {dashboardData.slug && (
-            <Link to={menuPath} target="_blank">
+            <Link
+              to={menuPath}
+              target="_blank"
+              rel="noreferrer"
+            >
               Menüyü Görüntüle
             </Link>
           )}
@@ -113,11 +135,18 @@ function DashboardPage() {
         <header className="dashboard-header">
           <div>
             <p>Hoş geldiniz</p>
-            <h1>{user.fullName ?? "Kullanıcı"}</h1>
+
+            <h1>
+              {user.fullName ?? "Kullanıcı"}
+            </h1>
           </div>
 
           {dashboardData.slug && (
-            <Link to={menuPath} target="_blank">
+            <Link
+              to={menuPath}
+              target="_blank"
+              rel="noreferrer"
+            >
               Menüyü Aç
             </Link>
           )}
@@ -125,17 +154,20 @@ function DashboardPage() {
 
         <section className="dashboard-introduction">
           <h2>
-            {dashboardData.businessName || "Menü Yönetimi"}
+            {dashboardData.businessName ||
+              "Menü Yönetimi"}
           </h2>
 
           <p>
-            Kategorilerinizi ve ürünlerinizi buradan
-            yönetebilirsiniz.
+            Kategorilerinizi, ürünlerinizi ve QR
+            kodunuzu buradan yönetebilirsiniz.
           </p>
         </section>
 
         {error && (
-          <p className="management-message">{error}</p>
+          <p className="management-message">
+            {error}
+          </p>
         )}
 
         <section className="dashboard-cards">
@@ -148,7 +180,9 @@ function DashboardPage() {
                 : dashboardData.categoryCount}
             </strong>
 
-            <p>Menü bölümünüz bulunuyor.</p>
+            <p>
+              Menü bölümünüz bulunuyor.
+            </p>
           </article>
 
           <article>
@@ -160,7 +194,9 @@ function DashboardPage() {
                 : dashboardData.productCount}
             </strong>
 
-            <p>Menünüzde kayıtlı ürün bulunuyor.</p>
+            <p>
+              Menünüzde kayıtlı ürün bulunuyor.
+            </p>
           </article>
 
           <article>
