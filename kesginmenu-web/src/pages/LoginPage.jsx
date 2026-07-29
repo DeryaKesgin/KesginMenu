@@ -7,8 +7,8 @@ function LoginPage() {
   const navigate = useNavigate();
 
   const [form, setForm] = useState({
-    email: "demo@kesginsoft.com",
-    password: "Demo123*",
+    email: "",
+    password: "",
   });
 
   const [loading, setLoading] = useState(false);
@@ -103,11 +103,7 @@ function LoginPage() {
           </button>
         </form>
 
-        <div className="demo-information">
-          <strong>Genel Demo Hesabı</strong>
-          <span>demo@kesginsoft.com</span>
-          <span>Demo123*</span>
-        </div>
+        
       </section>
     </main>
   );
